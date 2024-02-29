@@ -1,0 +1,12 @@
+<form [formGroup]="form" (submit)="process()">
+    <table>
+        <tr>
+            <td>
+                <input type="text" formControlName="query">
+            </td>
+            <td>
+                <button type="submit" [disabled]="form.invalid">Search</button>
+            </td>
+        </tr>
+    </table>
+</form>

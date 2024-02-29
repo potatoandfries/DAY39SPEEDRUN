@@ -1,0 +1,19 @@
+<div *ngIf="gif$ | async as gif; else error">
+    <img src="{{ gif.url }}" >
+    <button type="button" [routerLink]="['/gif', gif.gid, 'comment']">Comment</button>
+    <h3>Title: {{ gif.title }}</h3>
+    <h4>Username: {{ gif.username }}</h4>
+    <div *ngIf="gif.comments.length > 0; else noComments">
+        <div *ngFor="let comment of gif.comments">
+            <h6>{{ comment.timestamp }}</h6>
+            <p>{{ comment.comment }}</p>
+        </div>
+    </div>
+    <ng-template #noComments>
+        No comments
+    </ng-template>
+</div>
+
+<ng-template #error>
+    Error retrieving gif
+</ng-template>

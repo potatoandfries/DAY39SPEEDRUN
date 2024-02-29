@@ -1,0 +1,15 @@
+<div *ngIf="gifList$ | async as gifList">
+    <table *ngIf="gifList.length > 0; else noResult">
+        <tr *ngFor="let gif of gifList">
+            <td>
+                <a [routerLink]="['/gif', gif.gid]">{{ gif.title }}</a>
+            </td>
+        </tr>
+    </table>
+    <button type="button" [disabled]="previous" (click)="previousPage()">Previous</button>
+    <button type="button" [disabled]="next" (click)="nextPage()">Next</button>
+</div>
+
+<ng-template #noResult>
+    No results!
+</ng-template>

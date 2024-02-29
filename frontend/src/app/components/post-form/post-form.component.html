@@ -1,0 +1,6 @@
+<h1>Comment: {{ title }}</h1>
+<form [formGroup]="form" (submit)="process()">
+    <textarea formControlName="comment" cols="30" rows="10"></textarea>
+    <button type="button" [routerLink]="['/gif', gid]">Cancel</button>
+    <button type="submit" [disabled]="form.invalid">Post</button>
+</form>
